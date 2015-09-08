@@ -1914,14 +1914,16 @@ class CRM_Report_Form extends CRM_Core_Form {
     list($from, $to) = $this->getFromTo($relative, $from, $to);
 
     if ($from) {
-      $clauses[] = CRM_Utils_Date::customFormat($from, NULL, array('m', 'M'));
+      // wmf patch for custom format, reason for not using setting not yet determined.
+      $clauses[] = CRM_Utils_Date::customFormat($from, '%B %E%f, %Y %H:%Mh', array('m', 'M'));
     }
     else {
       $clauses[] = 'Past';
     }
 
     if ($to) {
-      $clauses[] = CRM_Utils_Date::customFormat($to, NULL, array('m', 'M'));
+      // wmf patch for custom format, reason for not using setting not yet determined.
+      $clauses[] = CRM_Utils_Date::customFormat($to, '%B %E%f, %Y %H:%Mh', array('m', 'M'));
     }
     else {
       $clauses[] = 'Today';
