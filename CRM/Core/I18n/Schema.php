@@ -227,7 +227,7 @@ class CRM_Core_I18n_Schema {
           $when = $triggerInfo['when'];
           $event = $triggerInfo['event'];
           $triggerName = "{$table}_{$when}_{$event}";
-          CRM_Core_DAO::executeQuery("DROP TRIGGER IF EXISTS {$triggerName}");
+          //CRM_Core_DAO::executeQuery("DROP TRIGGER IF EXISTS {$triggerName}");
         }
       }
 

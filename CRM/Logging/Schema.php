@@ -154,7 +154,7 @@ AND    TABLE_NAME LIKE 'log_civicrm_%'
     else {
       $tableNames = $this->tables;
     }
-
+/*
     foreach ($tableNames as $table) {
       $validName = CRM_Core_DAO::shortenSQLName($table, 48, TRUE);
 
@@ -168,7 +168,7 @@ AND    TABLE_NAME LIKE 'log_civicrm_%'
       $dao->executeQuery("DROP TRIGGER IF EXISTS {$validName}_after_update");
       $dao->executeQuery("DROP TRIGGER IF EXISTS {$validName}_after_delete");
     }
-
+*/
     // now lets also be safe and drop all triggers that start with
     // civicrm_ if we are dropping all triggers
     // we need to do this to capture all the leftover triggers since
