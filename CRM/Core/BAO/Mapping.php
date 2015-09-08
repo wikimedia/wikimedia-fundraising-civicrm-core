@@ -260,13 +260,12 @@ class CRM_Core_BAO_Mapping extends CRM_Core_DAO_Mapping {
    */
   public static function buildMappingForm(&$form, $mappingType = 'Export', $mappingId = NULL, $columnNo, $blockCount = 3, $exportMode = NULL) {
     if ($mappingType == 'Export') {
-      $name = "Map";
       $columnCount = array('1' => $columnNo);
     }
     elseif ($mappingType == 'Search Builder') {
-      $name = "Builder";
       $columnCount = $columnNo;
     }
+    $name = $form->getAttribute('id');
 
     //get the saved mapping details
 

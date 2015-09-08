@@ -385,9 +385,8 @@ INSERT INTO {$componentTable} SELECT distinct gc.contact_id FROM civicrm_group_c
     }
 
     $exportParams['postal_mailing_export']['temp_columns'] = array();
-    if ($exportParams['exportOption'] == 2 &&
-      isset($exportParams['postal_mailing_export']) &&
-      CRM_Utils_Array::value('postal_mailing_export', $exportParams['postal_mailing_export']) == 1
+    if (CRM_Utils_Array::value('exportOption', $exportParams) == 2 &&
+      CRM_Utils_Array::value('postal_mailing_export', $exportParams) == 1
     ) {
       $postalColumns = array('is_deceased', 'do_not_mail', 'street_address', 'supplemental_address_1');
       foreach ($postalColumns as $column) {
@@ -1164,6 +1163,11 @@ INSERT INTO {$componentTable} SELECT distinct gc.contact_id FROM civicrm_group_c
       // delete the export temp table and component table
       $sql = "DROP TABLE IF EXISTS {$exportTempTable}";
       CRM_Core_DAO::executeQuery($sql);
+
+      if ($componentTable) {
+        $sql = "DROP TABLE IF EXISTS {$componentTable}";
+        CRM_Core_DAO::executeQuery( $sql );
+      }
 
       CRM_Utils_System::civiExit();
     }
