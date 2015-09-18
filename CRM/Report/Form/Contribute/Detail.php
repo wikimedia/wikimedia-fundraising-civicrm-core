@@ -674,7 +674,6 @@ UNION ALL
 
     // assign variables to templates
     $this->doTemplateAssignment($rows);
-
     // do print / pdf / instance stuff if needed
     $this->endPostProcess($rows);
   }

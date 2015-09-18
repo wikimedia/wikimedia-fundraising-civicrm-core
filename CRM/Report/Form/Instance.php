@@ -339,7 +339,7 @@ class CRM_Report_Form_Instance {
     CRM_Core_Session::setStatus($statusMsg);
 
     if ($redirect) {
-      CRM_Utils_System::redirect(CRM_Utils_System::url("civicrm/report/instance/{$instance->id}", "reset=1"));
+      CRM_Utils_System::redirect(CRM_Utils_System::url("civicrm/report/instance/{$instance->id}", "reset=1&output=html"));
     }
   }
 
