@@ -4582,8 +4582,6 @@ LEFT JOIN civicrm_contact {$field['alias']} ON {$field['alias']}.id = {$this->_a
 
   /**
    * Determine the output mode from the url or input.
-   *
-   * @return string
    */
   protected function setOutputMode() {
     $buttonName = $this->controller->getButtonName();
@@ -4595,8 +4593,13 @@ LEFT JOIN civicrm_contact {$field['alias']} ON {$field['alias']}.id = {$this->_a
       CRM_Utils_Array::value('task', $this->_params)
     );
 
-    if ($buttonName && $buttonName == $this->_instanceButtonName) {
-      $this->_outputMode = 'save';
+    if ($buttonName) {
+      if ($buttonName == $this->_instanceButtonName) {
+        $this->_outputMode = 'save';
+      }
+      if ($buttonName == $this->_createNewButtonName) {
+        $this->_outputMode = 'copy';
+      }
     }
   }
 
